@@ -1,1 +1,8 @@
-/* Add your application styles here */
+.main {
+  background-color: var(--sand);
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
