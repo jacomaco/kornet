@@ -17,7 +17,7 @@ function Hero() {
           </div>
         </div>
         <div className="hero-image-container">
-          <img src="/hero-bg.png" alt="Spa treatment environment" className="hero-image" />
+          <img src={`${import.meta.env.BASE_URL}hero-bg.png`} alt="Spa treatment environment" className="hero-image" />
         </div>
       </div>
     </section>
