@@ -13,6 +13,10 @@
   box-shadow: 0 2px 10px rgba(0,0,0,0.05);
 }
 
+.navbar.nav-open {
+  box-shadow: none;
+}
+
 .navbar-logo {
   display: flex;
   align-items: center;
@@ -106,7 +110,8 @@
     flex-direction: column;
     padding: 2rem 0;
     transition: top 0.3s ease-in-out;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border-top: 1px solid rgba(0,0,0,0.05);
     z-index: -1;
   }
 
