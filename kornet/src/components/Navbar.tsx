@@ -25,7 +25,8 @@ function Navbar() {
         <li><a href="#treatments" onClick={() => setIsOpen(false)}>Behandlingar</a></li>
         <li><a href="#reviews" onClick={() => setIsOpen(false)}>Omdömen</a></li>
         <li><a href="#contact" onClick={() => setIsOpen(false)}>Kontakt</a></li>
-        <li><a href="#booking" className="navbar-btn" onClick={() => setIsOpen(false)}>Boka</a></li>
+        <li><a href="https://www.aseaglobal.com/sv-SE?webSiteName=sofiaknutsjohansson" target="_blank" rel="noopener noreferrer">Asea</a></li>
+        <li><a href="https://www.bokadirekt.se/places/kornets-halso-spa-5162" target="_blank" rel="noopener noreferrer" className="navbar-btn" onClick={() => setIsOpen(false)}>Boka</a></li>
       </ul>
     </nav>
   )

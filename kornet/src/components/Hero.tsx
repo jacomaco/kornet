@@ -12,7 +12,7 @@ function Hero() {
           <h1>Hälsosam ansikts- och kroppsvård på Södermalm</h1>
           <p>Hudvård, massage och mindfulness i en lugn och stressfri miljö.</p>
           <div className="hero-ctas">
-            <a href="#booking" className="btn btn-primary">Boka tid</a>
+            <a href="https://www.bokadirekt.se/places/kornets-halso-spa-5162" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Boka tid</a>
             <a href="#treatments" className="btn btn-secondary">Se behandlingar</a>
           </div>
         </div>
