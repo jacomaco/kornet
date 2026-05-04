@@ -6,6 +6,15 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  color: var(--jet-black);
+}
+
 :root {
   --jet-black: #253031;
   --dark-slate-grey: #315659;

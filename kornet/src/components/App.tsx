@@ -1,13 +1,14 @@
 import Navbar from './Navbar'
+import Hero from './Hero'
 import './styles/App.css'
 
 function App() {
   return (
     <>
       <Navbar />
-      <main className="main">
-        <h1>Welcome to Kornet</h1>
-        <p>Start building your amazing application here.</p>
+      <Hero />
+      <main>
+        {/* Fler sektioner kan läggas till här */}
       </main>
     </>
   )
