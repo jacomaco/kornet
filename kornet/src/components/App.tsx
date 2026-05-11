@@ -3,6 +3,7 @@ import Hero from './Hero'
 import About from './About'
 import AseaSection from './AseaSection'
 import Reviews from './Reviews'
+import Footer from './Footer'
 import './styles/App.css'
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
         <AseaSection />
         <Reviews />
       </main>
+      <Footer />
     </>
   )
 }
