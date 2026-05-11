@@ -16,7 +16,15 @@ function Footer() {
           </p>
         </div>
 
-        <div className="footer-col">
+        <div className="footer-col links-col">
+          <h3 className="footer-heading">Länkar</h3>
+          <ul className="footer-links">
+            <li><a href="https://www.bokadirekt.se/places/kornets-halso-spa-5162" target="_blank" rel="noopener noreferrer">Boka tid på Bokadirekt</a></li>
+            <li><a href="https://www.aseaglobal.com/sv-SE?webSiteName=sofiaknutsjohansson" target="_blank" rel="noopener noreferrer">Min ASEA-sida</a></li>
+          </ul>
+        </div>
+
+        <div className="footer-col contact-col">
           <h3 className="footer-heading">Kontakt</h3>
           <ul className="footer-list">
             <li>
@@ -30,7 +38,7 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="footer-col">
+        <div className="footer-col hours-col">
           <h3 className="footer-heading">Öppettider</h3>
           <ul className="footer-list">
             <li>
@@ -52,12 +60,19 @@ function Footer() {
           </ul>
         </div>
 
-        <div className="footer-col">
-          <h3 className="footer-heading">Länkar</h3>
-          <ul className="footer-links">
-            <li><a href="https://www.bokadirekt.se/places/kornets-halso-spa-5162" target="_blank" rel="noopener noreferrer">Boka tid på Bokadirekt</a></li>
-            <li><a href="https://www.aseaglobal.com/sv-SE?webSiteName=sofiaknutsjohansson" target="_blank" rel="noopener noreferrer">Min ASEA-sida</a></li>
-          </ul>
+        <div className="footer-col map-col">
+          <div className="footer-map-container">
+            <iframe 
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2035.7877237375267!2d18.066495216071727!3d59.31343798165389!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x465f77fa09d05a9d%3A0x673010b9914df1be!2sFatbursgatan%2018A%2C%20118%2054%20Stockholm!5e0!3m2!1ssv!2sse!4v1715424021234!5m2!1ssv!2sse" 
+              width="100%" 
+              height="100%" 
+              style={{ border: 0 }} 
+              allowFullScreen={false} 
+              loading="lazy" 
+              referrerPolicy="no-referrer-when-downgrade"
+              title="Karta till Kornets Hälso Spa"
+            ></iframe>
+          </div>
         </div>
 
       </div>

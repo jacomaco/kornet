@@ -4,8 +4,10 @@ import About from './About'
 import Treatments from './Treatments'
 import AseaSection from './AseaSection'
 import Reviews from './Reviews'
+import FAQ from './FAQ'
 import Footer from './Footer'
 import FadeInSection from './FadeInSection'
+import BackToTop from './BackToTop'
 import './styles/App.css'
 
 function App() {
@@ -26,8 +28,12 @@ function App() {
         <FadeInSection>
           <Reviews />
         </FadeInSection>
+        <FadeInSection>
+          <FAQ />
+        </FadeInSection>
       </main>
       <Footer />
+      <BackToTop />
     </>
   )
 }
