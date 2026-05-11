@@ -2,7 +2,7 @@ import './styles/AseaSection.css'
 
 function AseaSection() {
   return (
-    <section className="asea-section">
+    <section id="asea" className="asea-section">
       <div className="asea-container">
         <div className="asea-content">
           <h2 className="asea-heading">Unik inriktning med Redoxteknologi</h2>
