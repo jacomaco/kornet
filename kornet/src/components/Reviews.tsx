@@ -1,0 +1,126 @@
+import { useState } from 'react'
+import './styles/Reviews.css'
+
+const reviewsData = [
+  {
+    name: 'Marianne P.',
+    time: 'för ungefär en månad sedan',
+    rating: 5,
+    text: 'Vänligt och engagerat Proffsig massage!'
+  },
+  {
+    name: 'Annica I.',
+    time: 'för 8 månader sedan',
+    rating: 5,
+    text: 'Jätteskön massage'
+  },
+  {
+    name: 'Moa',
+    age: '32 år',
+    rating: 5,
+    text: 'Jättebra massage'
+  },
+  {
+    name: 'Agnes',
+    age: '43 år',
+    rating: 5,
+    text: 'Så skön ansiktsmassage och vilket resultat, bokar in nästa behandling snart igen'
+  },
+  {
+    name: 'Hirsto',
+    age: '34 år',
+    rating: 5,
+    text: 'Helt underbart och magiskt'
+  },
+  {
+    name: 'Cecilia',
+    age: '52 år',
+    rating: 5,
+    text: 'Den bästa fotmassagen jag varit på, helt fantastiskt'
+  },
+  {
+    name: 'Aneta',
+    age: '46 år',
+    rating: 5,
+    text: 'Nu känner jag mig som nyfödd'
+  },
+  {
+    name: 'Kicki',
+    age: '69 år',
+    rating: 5,
+    text: 'Fantastisk massage, en av de bästa'
+  }
+]
+
+function Reviews() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
+  const nextSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === reviewsData.length - 1 ? 0 : prevIndex + 1))
+  }
+
+  const prevSlide = () => {
+    setCurrentIndex((prevIndex) => (prevIndex === 0 ? reviewsData.length - 1 : prevIndex - 1))
+  }
+
+  return (
+    <section id="reviews" className="reviews-section">
+      <div className="reviews-container">
+        <h2 className="reviews-heading">Vad våra kunder säger</h2>
+        <div className="reviews-rating-summary">
+          <span className="rating-score">4.3</span>
+          <div className="stars">⭐⭐⭐⭐⭐</div>
+          <span className="rating-count">Baserat på över 150 betyg från Bokadirekt</span>
+        </div>
+
+        <div className="reviews-slider">
+          <button className="slider-btn prev-btn" onClick={prevSlide} aria-label="Föregående omdöme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          </button>
+          
+          <div className="slider-track-container">
+            <div 
+              className="slider-track" 
+              style={{ transform: `translateX(-${currentIndex * 100}%)` }}
+            >
+              {reviewsData.map((review, index) => (
+                <div className="review-card-wrapper" key={index}>
+                  <div className="review-card">
+                    <div className="review-stars">
+                      {Array.from({ length: review.rating }).map((_, i) => (
+                        <span key={i} className="star">⭐</span>
+                      ))}
+                    </div>
+                    <p className="review-text">"{review.text}"</p>
+                    <div className="review-author">
+                      <span className="author-name">{review.name}</span>
+                      {review.time && <span className="author-meta">{review.time}</span>}
+                      {review.age && <span className="author-meta">{review.age}</span>}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          <button className="slider-btn next-btn" onClick={nextSlide} aria-label="Nästa omdöme">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          </button>
+        </div>
+        
+        <div className="slider-dots">
+          {reviewsData.map((_, index) => (
+            <button 
+              key={index} 
+              className={`dot ${index === currentIndex ? 'active' : ''}`}
+              onClick={() => setCurrentIndex(index)}
+              aria-label={`Gå till omdöme ${index + 1}`}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Reviews

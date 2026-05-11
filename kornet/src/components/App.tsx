@@ -1,5 +1,8 @@
 import Navbar from './Navbar'
 import Hero from './Hero'
+import About from './About'
+import AseaSection from './AseaSection'
+import Reviews from './Reviews'
 import './styles/App.css'
 
 function App() {
@@ -8,7 +11,9 @@ function App() {
       <Navbar />
       <Hero />
       <main>
-        {/* Fler sektioner kan läggas till här */}
+        <About />
+        <AseaSection />
+        <Reviews />
       </main>
     </>
   )
