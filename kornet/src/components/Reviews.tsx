@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import './styles/Reviews.css'
 
 const reviewsData = [
@@ -62,6 +62,14 @@ function Reviews() {
   const prevSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === 0 ? reviewsData.length - 1 : prevIndex - 1))
   }
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      nextSlide()
+    }, 8000)
+
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <section id="reviews" className="reviews-section">
