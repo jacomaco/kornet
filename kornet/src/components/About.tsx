@@ -6,7 +6,14 @@ function About() {
     <section id="about" className="about-section">
       <div className="about-container">
         <div className="about-image-wrapper">
-          <img src={sofiaImage} alt="Sofia Knuts Johansson i sin salong" className="about-image" />
+          <img 
+            src={sofiaImage} 
+            alt="Sofia Knuts Johansson i sin salong" 
+            className="about-image" 
+            width="500"
+            height="650"
+            loading="lazy"
+          />
           <div className="about-image-decoration"></div>
         </div>
         <div className="about-content">
