@@ -1,6 +1,7 @@
 import Navbar from './Navbar'
 import Hero from './Hero'
 import About from './About'
+import Treatments from './Treatments'
 import AseaSection from './AseaSection'
 import Reviews from './Reviews'
 import Footer from './Footer'
@@ -15,6 +16,9 @@ function App() {
       <main>
         <FadeInSection>
           <About />
+        </FadeInSection>
+        <FadeInSection>
+          <Treatments />
         </FadeInSection>
         <FadeInSection>
           <AseaSection />
