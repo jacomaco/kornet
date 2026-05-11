@@ -4,6 +4,7 @@ import About from './About'
 import AseaSection from './AseaSection'
 import Reviews from './Reviews'
 import Footer from './Footer'
+import FadeInSection from './FadeInSection'
 import './styles/App.css'
 
 function App() {
@@ -12,9 +13,15 @@ function App() {
       <Navbar />
       <Hero />
       <main>
-        <About />
-        <AseaSection />
-        <Reviews />
+        <FadeInSection>
+          <About />
+        </FadeInSection>
+        <FadeInSection>
+          <AseaSection />
+        </FadeInSection>
+        <FadeInSection>
+          <Reviews />
+        </FadeInSection>
       </main>
       <Footer />
     </>
