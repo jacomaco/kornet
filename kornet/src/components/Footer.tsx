@@ -46,16 +46,12 @@ function Footer() {
               <span className="time">Stängt</span>
             </li>
             <li>
-              <span className="day">Onsdag:</span>
-              <span className="time">09:00 - 20:00</span>
+              <span className="day">Ons - Tor:</span>
+              <span className="time">08:00 - 20:00</span>
             </li>
             <li>
-              <span className="day">Tor - Lör:</span>
+              <span className="day">Fre - Sön:</span>
               <span className="time">Stängt</span>
-            </li>
-            <li>
-              <span className="day">Söndag:</span>
-              <span className="time">10:00 - 16:00</span>
             </li>
           </ul>
         </div>
