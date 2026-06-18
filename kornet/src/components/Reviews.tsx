@@ -1,5 +1,53 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useId } from 'react'
 import './styles/Reviews.css'
+
+const Star = ({ fillPercentage }: { fillPercentage: number }) => {
+  const gradientId = useId();
+  
+  return (
+    <svg 
+      xmlns="http://www.w3.org/2000/svg" 
+      width="20" 
+      height="20" 
+      viewBox="0 0 24 24" 
+      fill="none" 
+      stroke="currentColor" 
+      strokeWidth="2" 
+      strokeLinecap="round" 
+      strokeLinejoin="round" 
+      className="star-svg"
+      style={{ color: '#B4A16A' }}
+    >
+      <defs>
+        <linearGradient id={gradientId}>
+          <stop offset={`${fillPercentage}%`} stopColor="#B4A16A" />
+          <stop offset={`${fillPercentage}%`} stopColor="transparent" />
+        </linearGradient>
+      </defs>
+      <polygon 
+        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" 
+        fill={`url(#${gradientId})`}
+      />
+    </svg>
+  );
+};
+
+const StarRating = ({ rating }: { rating: number }) => {
+  return (
+    <div className="star-rating-wrapper" style={{ display: 'inline-flex', gap: '3px' }}>
+      {[1, 2, 3, 4, 5].map((starValue) => {
+        const diff = rating - (starValue - 1);
+        let fillPercentage = 0;
+        if (diff >= 1) {
+          fillPercentage = 100;
+        } else if (diff > 0) {
+          fillPercentage = diff * 100;
+        }
+        return <Star key={starValue} fillPercentage={fillPercentage} />;
+      })}
+    </div>
+  );
+};
 
 const reviewsData = [
   {
@@ -80,7 +128,9 @@ function Reviews() {
         <h2 className="reviews-heading">Vad våra kunder säger</h2>
         <div className="reviews-rating-summary">
           <span className="rating-score">4.3</span>
-          <div className="stars">⭐⭐⭐⭐⭐</div>
+          <div className="stars">
+            <StarRating rating={4.3} />
+          </div>
           <span className="rating-count">Baserat på över 150 betyg från Bokadirekt</span>
         </div>
 
@@ -102,9 +152,7 @@ function Reviews() {
                 <div className="review-card-wrapper" key={index}>
                   <div className="review-card">
                     <div className="review-stars">
-                      {Array.from({ length: review.rating }).map((_, i) => (
-                        <span key={i} className="star">⭐</span>
-                      ))}
+                      <StarRating rating={review.rating} />
                     </div>
                     <p className="review-text">"{review.text}"</p>
                     <div className="review-author">
