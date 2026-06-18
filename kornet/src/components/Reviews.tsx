@@ -156,9 +156,11 @@ function Reviews() {
                     </div>
                     <p className="review-text">"{review.text}"</p>
                     <div className="review-author">
-                      <span className="author-name">{review.name}</span>
-                      {review.time && <span className="author-meta">{review.time}</span>}
-                      {review.age && <span className="author-meta">{review.age}</span>}
+                      <span className="author-name">
+                        {review.name}
+                        {review.age && <span className="author-meta">, {review.age}</span>}
+                        {review.time && <span className="author-meta"> • {review.time}</span>}
+                      </span>
                     </div>
                   </div>
                 </div>
