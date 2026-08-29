@@ -20,7 +20,7 @@ function Footer() {
           <h2 className="footer-heading">Länkar</h2>
           <ul className="footer-links">
             <li><a href="https://www.bokadirekt.se/places/kornets-halso-spa-5162" target="_blank" rel="noopener noreferrer">Boka tid på Bokadirekt</a></li>
-            <li><a href="https://www.aseaglobal.com/sv-SE?webSiteName=sofiaknutsjohansson" target="_blank" rel="noopener noreferrer">Min ASEA-sida</a></li>
+            <li><a href="https://www.aseaglobal.com/sv-SE?webSiteName=sofiaknutsjohansson" target="_blank" rel="noopener noreferrer">Online shop</a></li>
           </ul>
         </div>
 

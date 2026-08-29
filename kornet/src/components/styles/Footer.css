@@ -15,35 +15,18 @@
 
 @media (min-width: 600px) {
   .footer-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-}
-
-@media (min-width: 1024px) {
-  .footer-container {
     grid-template-columns: repeat(12, 1fr);
+    grid-template-areas:
+      "brand brand brand brand brand brand links links links contact contact contact"
+      "hours hours hours hours hours hours map map map map map map";
+    gap: 2.5rem 3rem;
   }
-  
-  .brand-col {
-    grid-column: span 5;
-  }
-  
-  .links-col {
-    grid-column: span 3;
-  }
-  
-  .map-col {
-    grid-column: span 4;
-    grid-row: span 2; /* Spans across both rows */
-  }
-  
-  .contact-col {
-    grid-column: span 4;
-  }
-  
-  .hours-col {
-    grid-column: span 4;
-  }
+
+  .brand-col   { grid-area: brand; }
+  .links-col   { grid-area: links; }
+  .contact-col { grid-area: contact; }
+  .hours-col   { grid-area: hours; }
+  .map-col     { grid-area: map; }
 }
 
 .footer-col {
