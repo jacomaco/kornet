@@ -7,7 +7,7 @@ function AseaSection() {
         <div className="asea-content">
           <h2 className="asea-heading">Unik inriktning med cellulär intelligens</h2>
           <p className="asea-text">
-            Som en naturlig övergång till min ASEA-verksamhet har jag djupgående kunskap kring och användning av produkter med banbrytande cellulär intelligens. Denna teknologi hjälper till att optimera cellernas naturliga återhämtning och reparation inifrån och ut.
+            Som en naturlig övergång till min kompletterande verksamhet har jag djupgående kunskap kring och användning av produkter med banbrytande cellulär intelligens. Denna teknologi hjälper till att optimera cellernas naturliga återhämtning och reparation inifrån och ut.
           </p>
           <p className="asea-text">
             Produkterna jag använder och rekommenderar är helt doftfria, GMO-fria, naturliga och 100% säkra. Vid obehag och för snabbare återhämtning rekommenderar jag starkt produkter som RedoxGold.
