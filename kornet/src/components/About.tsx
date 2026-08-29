@@ -1,5 +1,5 @@
 import './styles/About.css'
-import sofiaImage from '../assets/sofia_placeholder.png'
+import sofiaImage from '../assets/SofiaAseaBildCorpped.png'
 
 function About() {
   return (
@@ -10,8 +10,8 @@ function About() {
             src={sofiaImage} 
             alt="Sofia Knuts Johansson i sin salong" 
             className="about-image" 
-            width="500"
-            height="650"
+            width="1408"
+            height="1848"
             loading="lazy"
           />
           <div className="about-image-decoration"></div>
