@@ -1,29 +1,15 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import './styles/Navbar.css'
 
 function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
 
   const toggleMenu = () => {
     setIsOpen(!isOpen)
   }
 
-  useEffect(() => {
-    const handleScroll = () => {
-      if (window.scrollY > 20) {
-        setScrolled(true)
-      } else {
-        setScrolled(false)
-      }
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
-
   return (
-    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+    <nav className="navbar">
       <div className="navbar-container">
         <a href="#home" className={`navbar-logo ${isOpen ? 'hidden-on-mobile' : ''}`} onClick={() => setIsOpen(false)}>
           <div className="logo-icon-wrapper">
