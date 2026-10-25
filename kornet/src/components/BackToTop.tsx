@@ -14,25 +14,31 @@ function BackToTop() {
       }
     }
 
-    window.addEventListener('scroll', toggleVisibility)
+    window.addEventListener('scroll', toggleVisibility, { passive: true })
+    toggleVisibility()
     return () => window.removeEventListener('scroll', toggleVisibility)
   }, [])
 
-  // Scroll to top smoothly
+  // Scroll to top smoothly, unless the user prefers reduced motion
   const scrollToTop = () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+
     window.scrollTo({
       top: 0,
-      behavior: 'smooth'
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
     })
   }
 
   return (
     <button
+      type="button"
       className={`back-to-top ${isVisible ? 'visible' : ''}`}
       onClick={scrollToTop}
       aria-label="Tillbaka till toppen"
     >
       <svg 
+        aria-hidden="true"
+        focusable="false"
         xmlns="http://www.w3.org/2000/svg" 
         width="24" 
         height="24" 

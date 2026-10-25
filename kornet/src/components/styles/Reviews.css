@@ -39,8 +39,18 @@
 .rating-count {
   font-size: 1.05rem;
   color: var(--dark-slate-grey);
-  opacity: 0.8;
   font-weight: 500;
+}
+
+.reviews-link {
+  color: var(--dark-slate-grey);
+  font-size: 0.95rem;
+  font-weight: 500;
+  text-underline-offset: 3px;
+}
+
+.reviews-link:hover {
+  color: var(--jet-black);
 }
 
 /* Slider Layout */
@@ -106,7 +116,7 @@
 
 .author-meta {
   font-size: 0.95rem;
-  color: #718096;
+  color: #5b6670;
   font-weight: 400;
 }
 

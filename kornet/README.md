@@ -1,8 +1,23 @@
-# Kornet
+# Kornets Hälso Spa
 
-Welcome to your new project. This project is a clean slate ready for development.
+Webbplats för Kornets Hälso Spa – massage, hudvård och mindfulness på Södermalm i Stockholm.
 
-## Getting Started
+## Utveckling
 
-1.  `npm install`
-2.  `npm run dev`
+```bash
+npm install
+npm run dev
+```
+
+## Bygge
+
+```bash
+npm run build
+npm run preview
+```
+
+## Kvalitet
+
+```bash
+npm run lint
+```

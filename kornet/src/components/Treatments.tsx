@@ -50,25 +50,34 @@ function Treatments() {
     <section id="treatments" className="treatments-section">
       <div className="treatments-header">
         <h2 className="treatments-heading">Populära Behandlingar</h2>
-        <p className="treatments-subheading">Ett urval av våra mest älskade behandlingar för kropp och själ.</p>
+        <p className="treatments-subheading">Ett urval av mina mest älskade behandlingar för kropp och själ.</p>
       </div>
 
       <div className="treatments-marquee-container">
         <div className="treatments-marquee">
-          {/* We duplicate the items to create a seamless infinite loop */}
-          {[...treatmentsData, ...treatmentsData].map((treatment, index) => (
-            <div className="treatment-card" key={index}>
-              <div className="treatment-card-header">
-                <span className="treatment-category">{treatment.category}</span>
-                <span className="treatment-duration">{treatment.duration}</span>
+          {/* We duplicate the items to create a seamless infinite loop.
+              The duplicate set is hidden from assistive technology. */}
+          {[...treatmentsData, ...treatmentsData].map((treatment, index) => {
+            const isDuplicate = index >= treatmentsData.length
+
+            return (
+              <div
+                className="treatment-card"
+                key={`${isDuplicate ? 'duplicate' : 'original'}-${treatment.name}`}
+                aria-hidden={isDuplicate || undefined}
+              >
+                <div className="treatment-card-header">
+                  <span className="treatment-category">{treatment.category}</span>
+                  <span className="treatment-duration">{treatment.duration}</span>
+                </div>
+                <h3 className="treatment-name">{treatment.name}</h3>
+                <p className="treatment-description">{treatment.description}</p>
+                <div className="treatment-card-footer">
+                  <span className="treatment-price">{treatment.price}</span>
+                </div>
               </div>
-              <h3 className="treatment-name">{treatment.name}</h3>
-              <p className="treatment-description">{treatment.description}</p>
-              <div className="treatment-card-footer">
-                <span className="treatment-price">{treatment.price}</span>
-              </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
 

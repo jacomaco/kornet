@@ -32,45 +32,54 @@ function FAQ() {
       <div className="faq-container">
         <h2 className="faq-heading">Vanliga Frågor</h2>
         <div className="faq-accordion">
-          {faqData.map((item, index) => (
-            <div 
-              key={index} 
-              className={`faq-item ${openIndex === index ? 'open' : ''}`}
-            >
-              <button 
-                className="faq-question" 
-                onClick={() => toggleAccordion(index)}
-                aria-expanded={openIndex === index}
+          {faqData.map((item, index) => {
+            const isOpen = openIndex === index
+
+            return (
+              <div
+                key={item.question}
+                className={`faq-item ${isOpen ? 'open' : ''}`}
               >
-                {item.question}
-                <svg 
-                  className="faq-icon" 
-                  xmlns="http://www.w3.org/2000/svg" 
-                  width="24" 
-                  height="24" 
-                  viewBox="0 0 24 24" 
-                  fill="none" 
-                  stroke="currentColor" 
-                  strokeWidth="2" 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round"
+                <button
+                  type="button"
+                  id={`faq-question-${index}`}
+                  className="faq-question"
+                  onClick={() => toggleAccordion(index)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-answer-${index}`}
                 >
-                  <path d="m6 9 6 6 6-6"/>
-                </svg>
-              </button>
-              <div 
-                className="faq-answer-wrapper"
-                style={{ 
-                  maxHeight: openIndex === index ? '200px' : '0px',
-                  opacity: openIndex === index ? 1 : 0
-                }}
-              >
-                <div className="faq-answer">
-                  {item.answer}
+                  {item.question}
+                  <svg
+                    aria-hidden="true"
+                    focusable="false"
+                    className="faq-icon"
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="m6 9 6 6 6-6"/>
+                  </svg>
+                </button>
+                <div
+                  id={`faq-answer-${index}`}
+                  className="faq-answer-wrapper"
+                  role="region"
+                  aria-labelledby={`faq-question-${index}`}
+                  aria-hidden={!isOpen}
+                >
+                  <div className="faq-answer">
+                    <p className="faq-answer-content">{item.answer}</p>
+                  </div>
                 </div>
               </div>
-            </div>
-          ))}
+            )
+          })}
         </div>
       </div>
     </section>

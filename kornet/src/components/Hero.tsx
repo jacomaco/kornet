@@ -6,7 +6,7 @@ function Hero() {
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-location">
-            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="lucide lucide-map-pin"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z" /><circle cx="12" cy="10" r="3" /></svg>
             <span>Södermalm, Stockholm</span>
           </div>
           <h1>Hälsosam ansikts- och kroppsvård på Södermalm</h1>
@@ -17,13 +17,14 @@ function Hero() {
           </div>
         </div>
         <div className="hero-image-container">
-          <img 
-            src={`${import.meta.env.BASE_URL}hero-bg.png`} 
-            alt="Spa treatment environment" 
-            className="hero-image" 
-            width="600"
-            height="750"
+          <img
+            src={`${import.meta.env.BASE_URL}hero-bg.webp`}
+            alt="Lugn och inbjudande behandlingsmiljö på Kornets Hälso Spa"
+            className="hero-image"
+            width="1024"
+            height="1024"
             fetchPriority="high"
+            decoding="async"
           />
         </div>
       </div>

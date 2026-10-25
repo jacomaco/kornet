@@ -21,7 +21,7 @@
 
 .treatments-subheading {
   font-size: 1.15rem;
-  color: #718096;
+  color: #5b6670;
 }
 
 /* Marquee / Auto-scrolling Slider */
@@ -62,8 +62,9 @@
   animation: scroll-marquee 40s linear infinite;
 }
 
-/* Pause the animation when hovering over the marquee */
-.treatments-marquee:hover {
+/* Pause the animation when hovering over or focusing within the marquee */
+.treatments-marquee:hover,
+.treatments-marquee:focus-within {
   animation-play-state: paused;
 }
 
@@ -104,11 +105,11 @@
 }
 
 .treatment-category {
-  color: var(--sand);
+  color: #7d6e3e;
 }
 
 .treatment-duration {
-  color: #a0aec0;
+  color: #5b6670;
 }
 
 .treatment-name {

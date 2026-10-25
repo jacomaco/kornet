@@ -1,20 +1,22 @@
-import { useState, useEffect, useId } from 'react'
+import { useState, useEffect, useId, type FocusEvent } from 'react'
 import './styles/Reviews.css'
 
 const Star = ({ fillPercentage }: { fillPercentage: number }) => {
   const gradientId = useId();
-  
+
   return (
-    <svg 
-      xmlns="http://www.w3.org/2000/svg" 
-      width="20" 
-      height="20" 
-      viewBox="0 0 24 24" 
-      fill="none" 
-      stroke="currentColor" 
-      strokeWidth="2" 
-      strokeLinecap="round" 
-      strokeLinejoin="round" 
+    <svg
+      aria-hidden="true"
+      focusable="false"
+      xmlns="http://www.w3.org/2000/svg"
+      width="20"
+      height="20"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
       className="star-svg"
       style={{ color: '#B4A16A' }}
     >
@@ -24,8 +26,8 @@ const Star = ({ fillPercentage }: { fillPercentage: number }) => {
           <stop offset={`${fillPercentage}%`} stopColor="transparent" />
         </linearGradient>
       </defs>
-      <polygon 
-        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" 
+      <polygon
+        points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"
         fill={`url(#${gradientId})`}
       />
     </svg>
@@ -34,7 +36,12 @@ const Star = ({ fillPercentage }: { fillPercentage: number }) => {
 
 const StarRating = ({ rating }: { rating: number }) => {
   return (
-    <div className="star-rating-wrapper" style={{ display: 'inline-flex', gap: '3px' }}>
+    <div
+      className="star-rating-wrapper"
+      style={{ display: 'inline-flex', gap: '3px' }}
+      role="img"
+      aria-label={`${String(rating).replace('.', ',')} av 5 stjärnor`}
+    >
       {[1, 2, 3, 4, 5].map((starValue) => {
         const diff = rating - (starValue - 1);
         let fillPercentage = 0;
@@ -100,9 +107,28 @@ const reviewsData = [
   }
 ]
 
+const usePrefersReducedMotion = () => {
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(() =>
+    window.matchMedia('(prefers-reduced-motion: reduce)').matches
+  )
+
+  useEffect(() => {
+    const mediaQuery = window.matchMedia('(prefers-reduced-motion: reduce)')
+    const handleChange = (event: MediaQueryListEvent) => {
+      setPrefersReducedMotion(event.matches)
+    }
+
+    mediaQuery.addEventListener('change', handleChange)
+    return () => mediaQuery.removeEventListener('change', handleChange)
+  }, [])
+
+  return prefersReducedMotion
+}
+
 function Reviews() {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isPaused, setIsPaused] = useState(false)
+  const prefersReducedMotion = usePrefersReducedMotion()
 
   const nextSlide = () => {
     setCurrentIndex((prevIndex) => (prevIndex === reviewsData.length - 1 ? 0 : prevIndex + 1))
@@ -113,43 +139,59 @@ function Reviews() {
   }
 
   useEffect(() => {
-    if (isPaused) return
+    if (isPaused || prefersReducedMotion) return
 
     const interval = setInterval(() => {
-      nextSlide()
+      setCurrentIndex((prevIndex) => (prevIndex === reviewsData.length - 1 ? 0 : prevIndex + 1))
     }, 8000)
 
     return () => clearInterval(interval)
-  }, [isPaused, currentIndex])
+  }, [isPaused, prefersReducedMotion])
+
+  const handleBlur = (event: FocusEvent<HTMLDivElement>) => {
+    if (!event.currentTarget.contains(event.relatedTarget as Node | null)) {
+      setIsPaused(false)
+    }
+  }
 
   return (
     <section id="reviews" className="reviews-section">
       <div className="reviews-container">
-        <h2 className="reviews-heading">Vad våra kunder säger</h2>
+        <h2 className="reviews-heading">Vad mina kunder säger</h2>
         <div className="reviews-rating-summary">
           <span className="rating-score">4.3</span>
           <div className="stars">
             <StarRating rating={4.3} />
           </div>
           <span className="rating-count">Baserat på över 150 betyg från Bokadirekt</span>
+          <a
+            className="reviews-link"
+            href="https://www.bokadirekt.se/places/kornets-halso-spa-5162"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Läs alla omdömen på Bokadirekt
+          </a>
         </div>
 
-        <div 
+        <div
           className="reviews-slider"
           onMouseEnter={() => setIsPaused(true)}
           onMouseLeave={() => setIsPaused(false)}
+          onFocus={() => setIsPaused(true)}
+          onBlur={handleBlur}
         >
-          <button className="slider-btn prev-btn" onClick={prevSlide} aria-label="Föregående omdöme">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
+          <button type="button" className="slider-btn prev-btn" onClick={prevSlide} aria-label="Föregående omdöme">
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6"/></svg>
           </button>
-          
+
           <div className="slider-track-container">
-            <div 
-              className="slider-track" 
+            <div
+              className="slider-track"
               style={{ transform: `translateX(-${currentIndex * 100}%)` }}
             >
-              {reviewsData.map((review, index) => (
-                <div className="review-card-wrapper" key={index}>
+              {reviewsData.map((review) => (
+                <div className="review-card-wrapper" key={`${review.name}-${review.text}`}>
                   <div className="review-card">
                     <div className="review-stars">
                       <StarRating rating={review.rating} />
@@ -168,18 +210,20 @@ function Reviews() {
             </div>
           </div>
 
-          <button className="slider-btn next-btn" onClick={nextSlide} aria-label="Nästa omdöme">
-            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+          <button type="button" className="slider-btn next-btn" onClick={nextSlide} aria-label="Nästa omdöme">
+            <svg aria-hidden="true" focusable="false" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6"/></svg>
           </button>
         </div>
-        
+
         <div className="slider-dots">
-          {reviewsData.map((_, index) => (
-            <button 
-              key={index} 
+          {reviewsData.map((review, index) => (
+            <button
+              type="button"
+              key={`${review.name}-${review.text}`}
               className={`dot ${index === currentIndex ? 'active' : ''}`}
               onClick={() => setCurrentIndex(index)}
               aria-label={`Gå till omdöme ${index + 1}`}
+              aria-current={index === currentIndex ? 'true' : undefined}
             />
           ))}
         </div>

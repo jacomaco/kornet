@@ -9,16 +9,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
     <!-- SEO -->
+    <title>Kornets Hälso Spa – massage och hudvård på Södermalm</title>
     <meta name="description" content="Kornets Hälso Spa på Södermalm erbjuder hälsosam ansikts- och kroppsvård, massage och återhämtning utan tveksamma kemikalier." />
-    
-    <!-- Preconnect for Google Fonts to improve LCP -->
+    <link rel="canonical" href="https://kornets.se/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="sv_SE" />
+    <meta property="og:site_name" content="Kornets Hälso Spa" />
+    <meta property="og:url" content="https://kornets.se/" />
+    <meta property="og:title" content="Kornets Hälso Spa – massage och hudvård på Södermalm" />
+    <meta property="og:description" content="Hälsosam ansikts- och kroppsvård, massage och mindfulness i en lugn miljö på Södermalm i Stockholm." />
+    <meta property="og:image" content="https://kornets.se/og-image.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Behandlingsrummet på Kornets Hälso Spa" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Preconnect for Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
-    <title>Kornets Hälso Spa</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap"
+    />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "DaySpa",
+        "name": "Kornets Hälso Spa",
+        "url": "https://kornets.se/",
+        "image": "https://kornets.se/og-image.jpg",
+        "description": "Hälsosam ansikts- och kroppsvård, massage och mindfulness på Södermalm i Stockholm.",
+        "telephone": "+46708912510",
+        "priceRange": "$$",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Fatbursgatan 18A",
+          "postalCode": "118 54",
+          "addressLocality": "Stockholm",
+          "addressCountry": "SE"
+        },
+        "geo": {
+          "@type": "GeoCoordinates",
+          "latitude": 59.31343798165389,
+          "longitude": 18.066495216071727
+        },
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Wednesday", "Thursday"],
+            "opens": "08:00",
+            "closes": "20:00"
+          }
+        ],
+        "sameAs": ["https://www.bokadirekt.se/places/kornets-halso-spa-5162"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>
-    <script type="module" src="src/main.tsx"></script>
+    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

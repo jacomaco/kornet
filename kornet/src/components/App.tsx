@@ -8,7 +8,6 @@ import FAQ from './FAQ'
 import Footer from './Footer'
 import FadeInSection from './FadeInSection'
 import BackToTop from './BackToTop'
-import './styles/App.css'
 
 function App() {
   return (

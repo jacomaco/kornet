@@ -66,11 +66,23 @@
 }
 
 .faq-answer-wrapper {
-  transition: max-height 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
-  overflow: hidden;
+  display: grid;
+  grid-template-rows: 0fr;
+  opacity: 0;
+  transition: grid-template-rows 0.3s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+}
+
+.faq-item.open .faq-answer-wrapper {
+  grid-template-rows: 1fr;
+  opacity: 1;
 }
 
 .faq-answer {
+  overflow: hidden;
+  min-height: 0;
+}
+
+.faq-answer-content {
   padding: 0 1.5rem 1.5rem;
   color: #4a5568;
   line-height: 1.6;
