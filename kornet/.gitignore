@@ -12,6 +12,9 @@ dist
 dist-ssr
 *.local
 
+# Original images (optimized versions live in src/assets)
+potetniella bilder/
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

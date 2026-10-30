@@ -1,5 +1,6 @@
 import './styles/About.css'
-import sofiaImage from '../assets/SofiaAseaBildCorpped.webp'
+import sofiaImage from '../assets/sofia-fabrik-1200.webp'
+import sofiaImageSmall from '../assets/sofia-fabrik-800.webp'
 
 function About() {
   return (
@@ -8,11 +9,14 @@ function About() {
         <div className="about-image-wrapper">
           <img 
             src={sofiaImage} 
-            alt="Sofia Knuts Johansson i sin salong" 
+            srcSet={`${sofiaImageSmall} 800w, ${sofiaImage} 1200w`}
+            sizes="(min-width: 900px) 500px, 100vw"
+            alt="Sofia Knuts Johansson i fabriksmiljö" 
             className="about-image" 
-            width="1000"
-            height="1313"
+            width="1200"
+            height="1600"
             loading="lazy"
+            decoding="async"
           />
           <div className="about-image-decoration"></div>
         </div>

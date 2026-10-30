@@ -1,8 +1,22 @@
 import './styles/Hero.css'
+import dalarnaImageLarge from '../assets/dalarna-sol-2400.webp'
+import dalarnaImageSmall from '../assets/dalarna-sol-1200.webp'
 
 function Hero() {
   return (
     <section className="hero-section" id="home">
+      <img
+        src={dalarnaImageLarge}
+        srcSet={`${dalarnaImageSmall} 1200w, ${dalarnaImageLarge} 2400w`}
+        sizes="100vw"
+        alt="Solnedgång över fälten i Dalarna"
+        className="hero-background"
+        width="2400"
+        height="1800"
+        fetchPriority="high"
+        decoding="async"
+      />
+      <div className="hero-overlay" aria-hidden="true"></div>
       <div className="hero-container">
         <div className="hero-content">
           <div className="hero-location">
@@ -15,17 +29,6 @@ function Hero() {
             <a href="https://www.bokadirekt.se/places/kornets-halso-spa-5162" target="_blank" rel="noopener noreferrer" className="btn btn-primary">Boka tid</a>
             <a href="#treatments" className="btn btn-secondary">Se behandlingar</a>
           </div>
-        </div>
-        <div className="hero-image-container">
-          <img
-            src={`${import.meta.env.BASE_URL}hero-bg.webp`}
-            alt="Lugn och inbjudande behandlingsmiljö på Kornets Hälso Spa"
-            className="hero-image"
-            width="1024"
-            height="1024"
-            fetchPriority="high"
-            decoding="async"
-          />
         </div>
       </div>
     </section>
