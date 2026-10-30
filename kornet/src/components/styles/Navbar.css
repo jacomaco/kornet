@@ -4,8 +4,9 @@
   top: 0;
   left: 0;
   width: 100%;
+  height: var(--navbar-height);
   z-index: 1000;
-  padding: 0.8rem 0;
+  padding: 0;
   transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
   background-color: rgba(255, 255, 255, 0.85); /* Light premium background */
   backdrop-filter: blur(16px);
@@ -15,6 +16,7 @@
 }
 
 .navbar-container {
+  height: 100%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 2rem;

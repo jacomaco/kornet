@@ -18,7 +18,6 @@ function AseaSection() {
               title="ASEA introduktionsfilm"
               className="asea-video"
               allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture; fullscreen"
-              allowFullScreen
               loading="lazy"
             ></iframe>
           </div>

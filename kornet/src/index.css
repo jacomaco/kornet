@@ -8,9 +8,11 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: var(--navbar-height);
 }
 
 body {
+  padding-top: var(--navbar-height);
   font-family: 'Playfair Display', serif;
   color: var(--jet-black);
 }
@@ -20,6 +22,7 @@ body {
   --dark-slate-grey: #315659;
   --sand: #B4A16A;
   --pale-sky: #C6E0FF;
+  --navbar-height: 4.5rem;
 }
 
 @media (prefers-reduced-motion: reduce) {

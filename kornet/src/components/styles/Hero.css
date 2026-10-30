@@ -4,9 +4,9 @@
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 92vh;
-  min-height: 92svh;
-  padding: 9rem 2rem 5rem;
+  min-height: calc(100vh - var(--navbar-height));
+  min-height: calc(100svh - var(--navbar-height));
+  padding: 4rem 2rem;
   overflow: hidden;
   background-color: var(--jet-black);
 }
@@ -137,9 +137,9 @@
 
 @media (max-width: 1024px) {
   .hero-section {
-    min-height: 100vh;
-    min-height: 100svh;
-    padding: 7.5rem 1.25rem 4rem;
+    min-height: calc(100vh - var(--navbar-height));
+    min-height: calc(100svh - var(--navbar-height));
+    padding: 3rem 1.25rem;
   }
 
   .hero-background {
@@ -197,6 +197,6 @@
   }
 
   .hero-section {
-    padding-top: 7rem;
+    padding-top: 2.5rem;
   }
 }

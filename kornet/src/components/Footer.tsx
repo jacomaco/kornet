@@ -47,7 +47,7 @@ function Footer() {
             </li>
             <li>
               <span className="day">Ons - Tor:</span>
-              <span className="time">08:00 - 20:00</span>
+              <span className="time">10:00 - 18:00</span>
             </li>
             <li>
               <span className="day">Fre - Sön:</span>
